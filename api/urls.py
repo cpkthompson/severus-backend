@@ -1,7 +1,8 @@
+from django.urls import path
 
-from django.contrib import admin
-from django.urls import path, include
+from api import views
 
 app_name='api'
 urlpatterns = [
+    path('', views.index_view, name='index')
 ]

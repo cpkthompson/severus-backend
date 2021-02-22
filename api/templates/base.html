@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% if ENVIRONMENT != 'local' %}
+        <!--TODO Google Analytics -->
+    {% endif %}
+    <meta charset="utf-8"/>
+    <title>Severus</title>
+
+    <base href="/"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <meta content="telephone=no" name="format-detection"/>
+    <meta content="no" name="msapplication-tap-highlight"/>
+
+    <link href="{% static 'assets/css/w3.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/bulma.min.css' %}" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.4.4/dist/vuetify.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+
+    <link href="{% static 'assets/css/styles.css' %}" rel="stylesheet">
+    {% block extra_head %}
+    {% endblock %}
+</head>
+
+<body>
+<div id="app" class="w3-hide w3-animate-opacity trans-400">
+
+    <v-app app>
+        <v-progress-linear indeterminate v-show="loading"></v-progress-linear>
+
+        <v-content>
+            {% block content %}
+
+            {% endblock %}
+        </v-content>
+    </v-app>
+</div>
+<noscript>Please enable JavaScript to continue using this application.</noscript>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+{% if ENVIRONMENT == 'local' %}
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+{% else %}
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+{% endif %}
+
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+
+<script>
+    let vueApp = new Vue({
+        el: '#app',
+        vuetify: new Vuetify(),
+        delimiters: ['[[', ']]'],
+        data() {
+            return {
+                loading: false,
+            };
+        },
+        watch: {},
+        mounted: function () {
+            $('#app').removeClass('w3-hide');
+        },
+        methods: {
+            goTo(url) {
+                this.loading = true;
+                window.location.href = url;
+            },
+        }
+    });
+</script>
+{% block extra_body %}
+
+{% endblock %}
+</body>
+
+</html>

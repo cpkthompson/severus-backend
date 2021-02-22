@@ -1,0 +1,69 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    line-height: unset;
+}
+
+@font-face {
+    font-family: 'Sans-Bold';
+    src: url('../../assets/fonts/Sans/Sans-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Sans-Medium';
+    src: url('../../assets/fonts/Sans/Sans-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Sans-Regular';
+    src: url('../../assets/fonts/Sans/Sans-Regular.ttf') format('truetype');
+}
+
+*, p, div, strong, label, ion-label {
+    font-family: "Sans-Regular", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6, ion-title {
+    font-family: "Sans-Bold", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif !important;
+}
+
+body {
+    color: #231f20;
+    background-color: #ffffff !important;
+    font-family: "Sans-Regular", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+
+.is-underlined {
+    text-decoration: underline;
+}
+
+.trans-400 {
+    transition: 400ms;
+}
+
+.w3-padding-8 {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.is-uppercase {
+    text-transform: uppercase;
+}
+
+
+.v-stepper {
+    box-shadow: unset !important;
+}
+
+
+#app {
+    padding-left: env(safe-area-inset-left);
+    padding-top: env(safe-area-inset-top);
+    padding-right: env(safe-area-inset-right);
+}
+
+.v-item-group.v-bottom-navigation--fixed {
+    bottom: env(safe-area-inset-bottom);
+}
